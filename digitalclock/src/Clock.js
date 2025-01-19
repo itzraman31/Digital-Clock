@@ -9,11 +9,11 @@ import nightMob from './Images/nightMob.jpg'
 
 const Clock = () => {
 
-  let colors1 = {
+  var colors1 = {
     color: 'white',
     fontFamily: 'EB Garamond '
   }
-  let colors2 = {
+  var colors2 = {
     color: 'black'
   }
 
@@ -33,6 +33,9 @@ const Clock = () => {
   const [hr1, sethr1] = useState(Math.floor(hours / 10));
   const [hr2, sethr2] = useState(hours % 10);
   const [style, setstyle] = useState();
+  const [dateclr, setdateclr] = useState({
+    color: 'white'
+  });
 
   setInterval(() => {
     let date = new Date();
@@ -50,24 +53,22 @@ const Clock = () => {
     sethr1(Math.floor(hours / 10))
     sethr2(hours % 10)
 
-
     if (hours >= 0 & hours <= 12) {
-      // setstyle({
-      //   BackgroundImage: `url(${dayLap})`
-      // })
-
       setstyle({
-        '--bg-image': `url(${dayLap})`,
-      });
+        backgroundImage: `url(${dayLap})`
+      })
+
+      setdateclr({
+        color: 'black'
+      })
     }
     else {
-      // setstyle({
-      //   backgroundImage: `url(${nightLap})`
-      // })
-
       setstyle({
-        '--bg-image': `url(${nightLap})`,
-      });
+        backgroundImage: `url(${nightLap})`
+      })
+      setdateclr({
+        color: 'white'
+      })
     }
   }, 1000);
 
@@ -117,7 +118,7 @@ const Clock = () => {
         </div>
 
         <div className='daydate'>
-          <h4 className='daydateh4' >{weekday[day1]}, {dateonly1}</h4>
+          <h4 style={dateclr} className='daydateh4' >{weekday[day1]}, {dateonly1}</h4>
         </div>
       </div>
     </>

@@ -1,24 +1,14 @@
 .outerdiv {
+    /* background-color: lightblue; */
     width: 100vw;
     height: 100vh;
-}
-
-.outerdiv::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    /* background-color: lightblue; */
-    width: 90vw;
-    height: 100vh;
-    
-    /* background-image: url('../public/Images/dayLap.jpg'); */
-    border: 1px solid black;
-    overflow: scroll;
-    background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    z-index: -1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    align-items: center;
 }
 
 .divforAll {
@@ -31,7 +21,7 @@
     width: 50px;
     margin: 15px;
     background-color: lightblue;
-    box-shadow: -3px -3px 10px white, 2px 3px 10px gray;
+    box-shadow: -3px -3px 8px white, 2px 3px 10px gray;
     border-radius: 20px;
     margin-top: 100px;
 }
@@ -49,15 +39,14 @@
     }
 
     .divforAll {
+        width: 80%;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-left: 30px;
-        margin-right: 30px;
-        margin-top: 100px;
+        margin: auto;
     }
-
-    .container {
+    
+    .container1 {
         width: 50px;
         margin: 10px;
         background-color: lightblue;
