@@ -36,6 +36,8 @@ const Clock = () => {
   const [dateclr, setdateclr] = useState({
     color: 'white'
   });
+  const screenWidth = window.innerWidth;
+
 
   setInterval(() => {
     let date = new Date();
@@ -53,22 +55,42 @@ const Clock = () => {
     sethr1(Math.floor(hours / 10))
     sethr2(hours % 10)
 
-    if (hours >= 0 & hours <= 12) {
-      setstyle({
-        backgroundImage: `url(${dayLap})`
-      })
 
-      setdateclr({
-        color: 'black'
-      })
-    }
-    else {
-      setstyle({
-        backgroundImage: `url(${nightLap})`
-      })
-      setdateclr({
-        color: 'white'
-      })
+    if (screenWidth <= 500) {  //Mobile
+      if (hours >= 0 & hours <= 12) {
+        setstyle({
+          backgroundImage: `url(${dayMob})`
+        })
+        setdateclr({
+          color: 'black'
+        })
+      }
+      else {
+        setstyle({
+          backgroundImage: `url(${nightMob})`
+        })
+        setdateclr({
+          color: 'white'
+        })
+      }
+    } else {
+      if (hours >= 0 & hours <= 12) {
+        setstyle({
+          backgroundImage: `url(${dayLap})`
+        })
+
+        setdateclr({
+          color: 'black'
+        })
+      }
+      else {
+        setstyle({
+          backgroundImage: `url(${nightLap})`
+        })
+        setdateclr({
+          color: 'white'
+        })
+      }
     }
   }, 1000);
 
